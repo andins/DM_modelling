@@ -248,13 +248,8 @@ nu = -1;  % sign of correlation
 [v, time_steps] = DDM_race(e, sig, b, rho, nu, duration);
 
 figure
-subplot(1,2,1), hold on
+hold on
 plot(time_steps, v, 'linewidth', 2)
-plot([time_steps(1) time_steps(end)], [b b],'--r')
-plot([time_steps(1) time_steps(end)], [-b -b],'--r')
-subplot(1,2,2), hold on
-plot(time_steps, (v(1,:)-v(2,:))/2, 'linewidth', 2)
-plot(time_steps, v(1,:)+v(2,:), 'linewidth', 2)
 plot([time_steps(1) time_steps(end)], [b b],'--r')
 plot([time_steps(1) time_steps(end)], [-b -b],'--r')
 
@@ -344,7 +339,7 @@ subplot(1,3,2), hold on
 rho = 0.;
 for t=1:num_trials
     [v, time_steps] = DDM_race(e, sig, b, rho, nu, 'free');
-    plot the dynamics in the v1/v2 plane
+    % plot the dynamics in the v1/v2 plane
     plot_2Dtimeseries(v(1,:), v(2,:),time_steps)
 end
 
@@ -355,7 +350,7 @@ params.trialLen = 3.;
 
 for i=1:num_trials
     [popA, popB, time_steps] = ANN(params, stimulus);
-    plot the dynamics in the v1/v2 plane
+    % plot the dynamics in the v1/v2 plane
     plot_2Dtimeseries(popA, popB, time_steps)
 end
 
